@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall
-TARGET = system
+TARGET = laberinto
 
 all: $(TARGET)
 

@@ -11,6 +11,7 @@ void create_dirs(){
 
 //numero random entre up y low
 int rando(int up, int low){
+    srand(time(NULL)/2); //set seed
     int num = (rand() % (up - low + 1)) + low;
     return num;
 }
@@ -43,11 +44,8 @@ int main() {
         chdir("..");
     }
 
-    srand(time(NULL)); //set seed
     int num1 = rando(3, 1); //numero 3-1
-    srand(time(NULL)); //set seed
     int num2 = rando(3, 1);
-    srand(time(NULL)); //set seed
     int num3 = rando(3, 1);
 
     char NUM1[2]; //str
