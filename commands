@@ -1,0 +1,5 @@
+gcc test.c -Wall -o test
+
+gcc system.c -Wall -o sys
+
+rmdir 1 2 3
