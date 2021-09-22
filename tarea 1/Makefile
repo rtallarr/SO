@@ -1,6 +1,7 @@
 CC = gcc
 CFLAGS = -Wall
 TARGET = laberinto
+TARGET2 = test
 
 all: $(TARGET)
 
