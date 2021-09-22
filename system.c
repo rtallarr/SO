@@ -1,10 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h> //system()
+#include <stdlib.h> 
+#include <string.h> //strcat()
 
 int main() {
-    system("mkdir 1");
-    system("mkdir 2");
-    system("mkdir 3");
+    //primera capa
+    //system("mkdir 1");
+    //system("mkdir 2");
+    //system("mkdir 3");
+
+    //segunda capa
+    system("cd 1");
 
     system("ls");
     return 0;
