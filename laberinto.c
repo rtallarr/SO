@@ -11,12 +11,12 @@ void create_dirs(){
 
 //numero random entre up y low
 int rando(int up, int low){
-    srand(time(NULL)/2); //set seed
     int num = (rand() % (up - low + 1)) + low;
     return num;
 }
 
 int main() {
+    srand(time(NULL)/2); //set seed
     char I[5]; // i pero en str
     char J[5];
 
