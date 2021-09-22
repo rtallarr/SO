@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> //system()
-#include <string.h> //strcat()
 #include <unistd.h> //chdir()
+#include <time.h> //time()
 
 void create_dirs(){
     system("mkdir 1");
@@ -9,8 +9,13 @@ void create_dirs(){
     system("mkdir 3");
 }
 
-int main() {
+//numero random entre up y low
+int rando(int up, int low){
+    int num = (rand() % (up - low + 1)) + low;
+    return num;
+}
 
+int main() {
     char I[5]; // i pero en str
     char J[5];
 
@@ -37,6 +42,32 @@ int main() {
         }
         chdir("..");
     }
+
+    srand(time(NULL)); //set seed
+    int num1 = rando(3, 1); //numero 3-1
+    srand(time(NULL)); //set seed
+    int num2 = rando(3, 1);
+    srand(time(NULL)); //set seed
+    int num3 = rando(3, 1);
+
+    char NUM1[2]; //str
+    char NUM2[2];
+    char NUM3[2];
+
+    printf("num1: %d\nnum2: %d\nnum3: %d\n", num1, num2, num3);
+
+    snprintf(NUM1, sizeof(NUM1), "%d", num1); //int->str
+    snprintf(NUM2, sizeof(NUM2), "%d", num2);
+    snprintf(NUM3, sizeof(NUM3), "%d", num3);
+    
+    chdir(NUM1);
+    chdir(NUM2);
+    chdir(NUM3);
+
+    FILE *fp;
+    fp = fopen("frase.txt", "w");
+    fprintf(fp, "1, los hurones del \n");
+    fclose(fp);
 
     return 0;
 }
