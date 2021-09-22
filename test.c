@@ -9,6 +9,9 @@
 int main() {
 
     int result = mkdir("/mnt/c/users/rodrigo/desktop/ubuntu/ola/", 0777);
+    char dir[3] = "directorio";
+
+    printf("esta volaita %s\n", dir);
 
     return 0;
 }

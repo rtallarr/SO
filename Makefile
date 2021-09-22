@@ -10,4 +10,4 @@ $(TARGET): $(TARGET).c
 
 clean: 
 	$(RM) $(TARGET)
-	rmdir 1 2 3
+	rm -r 1 2 3
