@@ -11,3 +11,6 @@ $(TARGET): $(TARGET).c
 clean: 
 	$(RM) $(TARGET)
 	rm -r 1 2 3
+
+dir:
+	rm -r 1 2 3

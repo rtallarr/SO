@@ -13,7 +13,7 @@ int main() {
 
     char I[5]; // i pero en str
     char J[5];
-    
+
     //capa 1
     create_dirs();
 
