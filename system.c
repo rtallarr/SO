@@ -3,30 +3,40 @@
 #include <string.h> //strcat()
 #include <unistd.h> //chdir()
 
-int main() {
-    //primera capa
+void create_dirs(){
     system("mkdir 1");
     system("mkdir 2");
     system("mkdir 3");
+}
 
-    //segunda capa
-    //char buffer[5]; //para guardar I en str
-    //char bufferJ[5]; //para guardar J en str
-    //char s[100];
+int main() {
 
-    //for(int j=1; j<=3; j++){
-    //    snprintf(bufferJ, sizeof(bufferJ), "%d", j); //convertir j. int->str
-    //    chdir(bufferJ);
-    //    for(int i=1; i<=3; i++){
-    //        char mdir[10] = "mkdir "; //variable para guardar el comando
-    //        snprintf(buffer, sizeof(buffer), "%d", i); //convert i. int->str
-    //        strcat(mdir, buffer);
-    //        system(mdir); //strcat se guarda en el primer string
-    //        printf("%s\n", getcwd(s, 100));
-    //    }
-    //    chdir("..");
-    //}
+    char I[5]; // i pero en str
+    char J[5];
+    
+    //capa 1
+    create_dirs();
 
-    //system("ls");
+    //capa 2
+    for(int i = 1; i <= 3; i++){ // 1 2 3
+        snprintf(I, sizeof(I), "%d", i); //guardar i en I como str
+        chdir(I);
+        create_dirs();
+        chdir("..");
+    }
+    
+    //capa 3
+    for(int i = 1; i <= 3; i++) {
+        snprintf(I, sizeof(I), "%d", i); //guardar i en I como str
+        chdir(I);
+        for (int j = 1; j <= 3; j++) {
+            snprintf(J, sizeof(J), "%d", j); //guardar j en J como str
+            chdir(J);
+            create_dirs();
+            chdir("..");
+        }
+        chdir("..");
+    }
+
     return 0;
 }
