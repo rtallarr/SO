@@ -67,24 +67,17 @@ int main() {
     char NUM2[2];
     char NUM3[2];
 
-    //printf("num1: %d\nnum2: %d\nnum3: %d\n", num1, num2, num3);
-    //char s[150];
-    //printf("working dir: %s\n", getcwd(s, 100));
-
     snprintf(NUM1, sizeof(NUM1), "%d", num1); //int->str
     snprintf(NUM2, sizeof(NUM2), "%d", num2);
     snprintf(NUM3, sizeof(NUM3), "%d", num3);
 
     char conca1[10];
     concatenate(conca1, num1, num2, num3); //concatenate combination of folders 
-    //printf("conca1: %s\n", conca1);
+    printf("conca1: %s\n", conca1);
     
     chdir(NUM1);
     chdir(NUM2);
     chdir(NUM3);
-
-    //char s[150];
-    //printf("working dir: %s\n", getcwd(s, 100));
 
     FILE *fp1;
     fp1 = fopen("frase.txt", "w");
@@ -103,7 +96,7 @@ int main() {
 
     char conca2[10];
     concatenate(conca2, num1, num2, num3); //concatenate combination of folders 
-    //printf("conca2: %s\n", conca2);
+    printf("conca2: %s\n", conca2);
 
     while (conca1 == conca2) {
         num1 = rando(3, 1); //volver a generar los numeros
@@ -118,9 +111,6 @@ int main() {
     chdir(NUM1);
     chdir(NUM2);
     chdir(NUM3);
-    
-    //char r[150];
-    //printf("working dir: %s\n", getcwd(r, 100));
 
     FILE *fp2;
     fp2 = fopen("frase.txt", "w");
@@ -139,7 +129,7 @@ int main() {
 
     char conca3[10];
     concatenate(conca3, num1, num2, num3); //concatenate combination of folders 
-    //printf("conca3: %s\n", conca3);
+    printf("conca3: %s\n", conca3);
 
     while (conca1 == conca3 || conca2 == conca3) {
         num1 = rando(3, 1); //volver a generar los numeros
