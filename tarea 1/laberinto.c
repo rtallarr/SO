@@ -16,6 +16,7 @@ int rando(int up, int low){
     return num;
 }
 
+//concatena 3 numeros INT en la variable var -> STR
 char* concatenate(char* var, int one, int two, int three){
     char buffer2[10];
     char buffer3[10];
@@ -76,7 +77,7 @@ int main() {
 
     char conca1[10];
     concatenate(conca1, num1, num2, num3); //concatenate combination of folders 
-    printf("conca1: %s\n", conca1);
+    //printf("conca1: %s\n", conca1);
     
     chdir(NUM1);
     chdir(NUM2);
@@ -102,7 +103,7 @@ int main() {
 
     char conca2[10];
     concatenate(conca2, num1, num2, num3); //concatenate combination of folders 
-    printf("conca2: %s\n", conca2);
+    //printf("conca2: %s\n", conca2);
 
     while (conca1 == conca2) {
         num1 = rando(3, 1); //volver a generar los numeros
@@ -138,7 +139,7 @@ int main() {
 
     char conca3[10];
     concatenate(conca3, num1, num2, num3); //concatenate combination of folders 
-    printf("conca3: %s\n", conca3);
+    //printf("conca3: %s\n", conca3);
 
     while (conca1 == conca3 || conca2 == conca3) {
         num1 = rando(3, 1); //volver a generar los numeros
