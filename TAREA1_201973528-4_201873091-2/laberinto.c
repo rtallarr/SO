@@ -16,7 +16,7 @@ int rando(int up, int low){
     return num;
 }
 
-//concatena 3 numeros INT en la variable var -> STR
+//concatena 3 numeros INT en la variable var en tipo STR
 char* concatenate(char* var, int one, int two, int three){
     char buffer2[10];
     char buffer3[10];
@@ -32,6 +32,11 @@ int main() {
     srand(time(NULL)/2); //set seed
     char I[5]; // i pero en str
     char J[5];
+
+    //crear laberinto 
+
+    system("mkdir Laberinto");
+    chdir("Laberinto");
 
     //capa 1
     create_dirs();
@@ -81,7 +86,7 @@ int main() {
 
     FILE *fp1;
     fp1 = fopen("frase.txt", "w");
-    fprintf(fp1, "1, los hurones del ");
+    fprintf(fp1, "1, Los hurones del \n");
     fclose(fp1);
 
     chdir("..");
@@ -114,7 +119,7 @@ int main() {
 
     FILE *fp2;
     fp2 = fopen("frase.txt", "w");
-    fprintf(fp2, "2, profesor de sistemas operativos son "); //3, un mob del minecraft altamente peligroso y temido por millones
+    fprintf(fp2, "2, profesor de sistemas operativos son \n"); //3, un mob del minecraft altamente peligroso y temido por millones
     fclose(fp2);
 
     chdir("..");
@@ -150,7 +155,7 @@ int main() {
 
     FILE *fp3;
     fp3 = fopen("frase.txt", "w");
-    fprintf(fp3, "3, un mob del minecraft altamente peligroso y temido por millones");
+    fprintf(fp3, "3, un mob del minecraft altamente peligroso y temido por millones\n");
     fclose(fp3);
 
     chdir("..");

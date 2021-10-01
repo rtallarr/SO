@@ -1,5 +1,7 @@
 .vscode/
+README.md
 laberinto
 buscador
 test
 a.out
+*.tar.gz
