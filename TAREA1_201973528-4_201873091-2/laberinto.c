@@ -78,7 +78,7 @@ int main() {
 
     char conca1[10];
     concatenate(conca1, num1, num2, num3); //concatenate combination of folders 
-    printf("conca1: %s\n", conca1);
+    printf("Ruta 1: %s\n", conca1);
     
     chdir(NUM1);
     chdir(NUM2);
@@ -101,7 +101,7 @@ int main() {
 
     char conca2[10];
     concatenate(conca2, num1, num2, num3); //concatenate combination of folders 
-    printf("conca2: %s\n", conca2);
+    printf("Ruta 2: %s\n", conca2);
 
     while (conca1 == conca2) {
         num1 = rando(3, 1); //volver a generar los numeros
@@ -134,7 +134,7 @@ int main() {
 
     char conca3[10];
     concatenate(conca3, num1, num2, num3); //concatenate combination of folders 
-    printf("conca3: %s\n", conca3);
+    printf("Ruta 3: %s\n", conca3);
 
     while (conca1 == conca3 || conca2 == conca3) {
         num1 = rando(3, 1); //volver a generar los numeros
