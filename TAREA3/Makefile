@@ -9,4 +9,4 @@ $(TARGET): $(TARGET).java
 	java $(TARGET)
 
 clean: 
-	$(RM) $(TARGET).class
+	$(RM) *.class
