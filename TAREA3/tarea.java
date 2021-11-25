@@ -54,6 +54,10 @@ class SimpleThread extends Thread {
             System.out.println("Hebra 2 terminando a las "+ fin2);
         }
         if (getName() == "t3"){ //hebra 3
+        String code = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
+                        "....", "..", ".---", "-.-", ".-..", "--", "-.",
+                        "---", ".--.", "--.-", ".-.", "...", "-", "..-", 
+                        "...-", ".--", "-..-", "-.--", "--.."}
             try {
                 File myObj = new File("morse.txt");
                 Scanner myReader = new Scanner(myObj);
