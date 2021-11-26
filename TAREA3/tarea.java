@@ -54,19 +54,22 @@ class SimpleThread extends Thread {
             System.out.println("Hebra 2 terminando a las "+ fin2);
         }
         if (getName() == "t3"){ //hebra 3
-        String code = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
+        String[] code = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
                         "....", "..", ".---", "-.-", ".-..", "--", "-.",
                         "---", ".--.", "--.-", ".-.", "...", "-", "..-", 
-                        "...-", ".--", "-..-", "-.--", "--.."}
+                        "...-", ".--", "-..-", "-.--", "--.."};
+
+        String[] abc = {"a", "b", "c", "d", "e", "f", "g", "h", "i",
+                        "j", "k", "l", "m", "n", "o", "p", "q", "r",
+                        "s", "t", "u", "v", "w", "x", "y", "z"};
+
+        String traduccion = "";
             try {
                 File myObj = new File("morse.txt");
                 Scanner myReader = new Scanner(myObj);
                 while (myReader.hasNextLine()) {
                     String[] data = myReader.nextLine().split(" ");
-                    for (String a : data){
-                        if (a.equals("eiffel")){
-                            System.out.println(a);
-                        }
+                    for (String word : data){
                     }
                 }
                 myReader.close();
@@ -74,6 +77,7 @@ class SimpleThread extends Thread {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
+            System.out.println(traduccion);
             LocalTime fin3 = java.time.LocalTime.now();
             System.out.println("Hebra 3 terminando a las "+ fin3);
         }
@@ -83,16 +87,16 @@ class SimpleThread extends Thread {
 // Main Class
 public class tarea {
     public static void main(String[] args) {
-        LocalTime inicio1 = java.time.LocalTime.now();
-        System.out.println("\nHebra 1 iniciando a las " + inicio1 + "\n");
-        new SimpleThread("t1").start();
-
+        //LocalTime inicio1 = java.time.LocalTime.now();
+        //System.out.println("\nHebra 1 iniciando a las " + inicio1 + "\n");
+        //new SimpleThread("t1").start();
+//
         //LocalTime inicio2 = java.time.LocalTime.now();
         //System.out.println("Hebra 2 iniciando a las " + inicio2 + "\n");
         //new SimpleThread("t2").start();
-//
-        //LocalTime inicio3 = java.time.LocalTime.now();
-        //System.out.println("Hebra 3 iniciando a las " + inicio3 + "\n");
-        //new SimpleThread("t3").start();
+
+        LocalTime inicio3 = java.time.LocalTime.now();
+        System.out.println("Hebra 3 iniciando a las " + inicio3 + "\n");
+        new SimpleThread("t3").start();
     }
 }
