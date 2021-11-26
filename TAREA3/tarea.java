@@ -1,13 +1,17 @@
 import java.util.Scanner;
-import java.time.LocalTime;
 import java.io.File;
 import java.io.FileNotFoundException;
 
 // Java code for thread creation by extending
 // the Thread class
 class SimpleThread extends Thread {
+    public long tiempo;
     public SimpleThread(String name){
         super(name);
+    }
+
+    public void setTime(long time){
+        this.tiempo = time;
     }
 
     public void run() {
@@ -29,8 +33,9 @@ class SimpleThread extends Thread {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
-            LocalTime fin1 = java.time.LocalTime.now();
-            System.out.println("Hebra 1 terminando a las "+ fin1);
+            long fin1 = java.lang.System.nanoTime();
+            long duracion = fin1 - tiempo;
+            System.out.println("Hebra 1 terminó en " + duracion + "[ns]");
         }
 
         if (getName() == "t2"){ //hebra 2
@@ -50,8 +55,9 @@ class SimpleThread extends Thread {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
-            LocalTime fin2 = java.time.LocalTime.now();
-            System.out.println("Hebra 2 terminando a las "+ fin2);
+            long fin2 = java.lang.System.nanoTime();
+            long duracion = fin2 - tiempo;
+            System.out.println("Hebra 2 terminó en " + duracion + "[ns]");
         }
         if (getName() == "t3"){ //hebra 3
         String[] code = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
@@ -87,8 +93,9 @@ class SimpleThread extends Thread {
                 e.printStackTrace();
             }
             System.out.println("traduccion: " + traduccion);
-            LocalTime fin3 = java.time.LocalTime.now();
-            System.out.println("Hebra 3 terminando a las "+ fin3);
+            long fin3 = java.lang.System.nanoTime();
+            long duracion = fin3 - tiempo;
+            System.out.println("Hebra 3 terminó en " + duracion + "[ns]");
         }
     }
 }
@@ -96,16 +103,19 @@ class SimpleThread extends Thread {
 // Main Class
 public class tarea {
     public static void main(String[] args) {
-        LocalTime inicio1 = java.time.LocalTime.now();
-        System.out.println("\nHebra 1 iniciando a las " + inicio1 + "\n");
-        new SimpleThread("t1").start();
+        long inicio1 = java.lang.System.nanoTime();
+        SimpleThread t1 = new SimpleThread("t1");
+        t1.start();
+        t1.setTime(inicio1);
 
-        LocalTime inicio2 = java.time.LocalTime.now();
-        System.out.println("Hebra 2 iniciando a las " + inicio2 + "\n");
-        new SimpleThread("t2").start();
+        long inicio2 = java.lang.System.nanoTime();
+        SimpleThread t2 = new SimpleThread("t2");
+        t2.start();
+        t2.setTime(inicio2);
 
-        LocalTime inicio3 = java.time.LocalTime.now();
-        System.out.println("Hebra 3 iniciando a las " + inicio3 + "\n");
-        new SimpleThread("t3").start();
+        long inicio3 = java.lang.System.nanoTime();
+        SimpleThread t3 = new SimpleThread("t3");
+        t3.start();
+        t3.setTime(inicio3);
     }
 }
