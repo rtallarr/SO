@@ -17,3 +17,4 @@ Ejecutar `make`.
 Esto crea 2 archivos `tarea.class` y `SimpleThread.class`.
 El mismo comando `make` se encarga de correr estos archivos, por lo que se deberia tener de forma inmediata el output del programa.
 Con `make clean` se puede borrar todo el contenido creado.
+El archivo comprimido viene con archivos `morse.txt`, `numeros.txt` y `palabras.txt` de ejemplo.
