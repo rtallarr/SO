@@ -16,15 +16,16 @@ class SimpleThread extends Thread {
 
     public void run() {
         if (getName() == "t1"){ //hebra 1
-            //System.out.println("aki t1. Hebra n° " + Thread.currentThread().getId());
             try {
                 File myObj = new File("palabras.txt");
                 Scanner myReader = new Scanner(myObj);
-                while (myReader.hasNextLine()) {
+                boolean flag = true;
+                while (myReader.hasNextLine() && flag) {
                     String[] data = myReader.nextLine().split(" ");
                     for (String a : data){
                         if (a.equals("eiffel")){
                             System.out.println(a);
+                            flag = false;
                         }
                     }
                 }
@@ -39,26 +40,12 @@ class SimpleThread extends Thread {
         }
 
         if (getName() == "t2"){ //hebra 2
-            try {
-                File myObj = new File("numeros.txt");
-                Scanner myReader = new Scanner(myObj);
-                while (myReader.hasNextLine()) {
-                    String[] data = myReader.nextLine().split(" ");
-                    for (String a : data){
-                        if (a.equals("eiffel")){
-                            System.out.println(a);
-                        }
-                    }
-                }
-                myReader.close();
-            } catch (FileNotFoundException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
+            System.out.println("hebra 2");
             long fin2 = java.lang.System.nanoTime();
             long duracion = fin2 - tiempo;
             System.out.println("Hebra 2 terminó en " + duracion + "[ns]");
         }
+        
         if (getName() == "t3"){ //hebra 3
         String[] code = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
                         "....", "..", ".---", "-.-", ".-..", "--", "-.",
