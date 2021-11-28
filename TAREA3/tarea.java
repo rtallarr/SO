@@ -2,6 +2,9 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+import java.util.*;
+import java.util.stream.*;
+
 // Java code for thread creation by extending
 // the Thread class
 class SimpleThread extends Thread {
@@ -12,6 +15,24 @@ class SimpleThread extends Thread {
 
     public void setTime(long time){
         this.tiempo = time;
+    }
+
+    //SOLVER SUM
+    public static void search_pair(List<Integer> numeros,List<Integer> indices, int size, int current){
+        int temp_value;
+        for (int i=0; i < size-1; i+=1) {
+          temp_value=numeros.get(i)+numeros.get(current);
+          if (temp_value == 65) {
+            if ( i + current < indices.get(0)+ indices.get(1) && i < current){
+                if (i < indices.get(0))
+                  indices.set(0, i);
+                  indices.set(1, current);
+            }
+          }
+        }if (current < size-1) {
+             search_pair(numeros,indices,size,current+=1);
+        }
+        return;
     }
 
     public void run() {
@@ -41,6 +62,29 @@ class SimpleThread extends Thread {
         }
 
         if (getName() == "t2"){ //hebra 2
+            try {
+                File myObj = new File("numeros.txt");
+                Scanner myReader = new Scanner(myObj);
+                List<Integer> data=new ArrayList<Integer>();
+                List<Integer> index=new ArrayList<Integer>();
+                while (myReader.hasNextLine()) {
+                    List<String> data_tmp =Arrays.asList(myReader.nextLine().split(" "));
+                    List<Integer> listInteger = data_tmp.stream().map(Integer::parseInt).collect(Collectors.toList());
+                    data=Stream.concat(listInteger.stream(), data.stream()).collect(Collectors.toList());
+                }
+  
+                int size = data.size();
+                index.add(size);
+                index.add(size);
+                search_pair(data,index,size,0);
+                System.out.println(data.get(index.get(0)));
+                System.out.println(data.get(index.get(1)));
+                myReader.close();
+  
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
             long fin2 = java.lang.System.nanoTime();
             long duracion = fin2 - tiempo;
             System.out.println("Hebra 2 terminó en " + duracion + "[ns]");
