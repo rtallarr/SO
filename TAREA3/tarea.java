@@ -26,6 +26,7 @@ class SimpleThread extends Thread {
                         if (a.equals("eiffel")){
                             System.out.println(a);
                             flag = false;
+                            break;
                         }
                     }
                 }
@@ -40,7 +41,6 @@ class SimpleThread extends Thread {
         }
 
         if (getName() == "t2"){ //hebra 2
-            System.out.println("hebra 2");
             long fin2 = java.lang.System.nanoTime();
             long duracion = fin2 - tiempo;
             System.out.println("Hebra 2 terminó en " + duracion + "[ns]");
@@ -90,6 +90,8 @@ class SimpleThread extends Thread {
 // Main Class
 public class tarea {
     public static void main(String[] args) {
+        System.out.println("");
+
         long inicio1 = java.lang.System.nanoTime();
         SimpleThread t1 = new SimpleThread("t1");
         t1.start();
